@@ -57,11 +57,30 @@
             overflow-x:hidden;
             box-sizing:border-box;
         }
-        .title{
+        .tdiv{
             width:80vw;
-            height: 7vh;
-            color:#FFFFFF;
+            height: 11vmin;
             background-color:rgba(84, 81, 106, 0.5);
+            left:20vw;
+            bottom:0;
+            position:absolute;
+        }
+        .title{
+            width:79vw;
+            height: 7vmin;
+            color:#FFFFFF;
+            position:absolute;
+            left:20vw;
+            bottom:4vh;
+            text-align:right;
+            display:flex;/*Flex布局*/
+            display: -webkit-flex; /* Safari */
+            align-items:center;/*指定垂直居中*/
+        }
+        .sublink{
+            width:79vw;
+            height: 4vmin;
+            color:#FFFFFF;
             position:absolute;
             left:20vw;
             bottom:0;
@@ -74,18 +93,20 @@
     <body>
         <div id="particles-js" style="background-size:cover;background-image:url('./img/2.jpg');background-repeat:no-repeat;"></div>
 
-            <div id="list" class="list">
+            <div id="list" class="list"></div>
+            <div class="tdiv"></div>
 
-                      <li class="site-title">凝萌小记</li>
-                      <li class="site-description">作家是杂家。</li>
-            </div>
-                
             <div class="title">
-                <div style='width:100%;text-align:right;font-size:5em;'>
-                        <a id='blog' style="color:#fff" ><i class="icon fa fa-dot-circle-o"></i></a>
-                        <a id='source' style="color:#fff" ><i class="icon fa fa-file-code-o"></i></a>
-                        <a id='web' style="color:#fff" ><i class="icon fa fa-dot-circle-o"></i></a>
-                      <span id='cur_title' class="site-title">Coming soon: 站点建设中...</span>
+                <div style='width:100%;text-align:right;font-size:5vmin;'>
+                    <span id='cur_title' class="site-title"></span>
+                </div>
+            </div>
+
+            <div class="sublink">
+                <div style='width:100%;text-align:right;font-size:2vmin;'>
+                    <a id='blog' style="color:#fff;text-decoration:none" ><i class="fa fa-file-text-o"></i>[BLOG</a>]&nbsp;
+                    <a id='source' style="color:#fff;text-decoration:none" ><i class="fa fa-file-code-o"></i>[CODE]</a>&nbsp;
+                    <a id='web' style="color:#fff;text-decoration:none" ><i class="fa fa-dot-circle-o"></i>[TRY]</a>
                 </div>
             </div>
                 
@@ -103,26 +124,44 @@
         xmlhttp.send();
         xmlDoc=xmlhttp.responseXML;
         x=xmlDoc.getElementsByTagName("demo");
-        
         function demoInfo(i){
             cur_title=(x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue);
-            source=(x[i].getElementsByTagName("source")[0].childNodes[0].nodeValue);
-            web=(x[i].getElementsByTagName("web")[0].childNodes[0].nodeValue);
-            blog=(x[i].getElementsByTagName("blog")[0].childNodes[0].nodeValue);
             img=(x[i].getElementsByTagName("img")[0].childNodes[0].nodeValue);
             document.getElementById("particles-js").style.backgroundImage='url('+img+')';
-            document.getElementById("blog").style.backgroundImage=blog;
-            document.getElementById("web").style.backgroundImage=web;
-            document.getElementById("source").style.backgroundImage=source;
-            document.getElementById("cur_title").style.backgroundImage=cur_title;
-            
+            document.getElementById("cur_title").textContent=cur_title;
+
+            try{
+                source=(x[i].getElementsByTagName("source")[0].childNodes[0].nodeValue);
+                document.getElementById("blog").href=blog;
+                document.getElementById("blog").style.display="inline"
+            }
+            catch(e){
+                document.getElementById("blog").style.display="none"
+            }
+            try{
+                web=(x[i].getElementsByTagName("web")[0].childNodes[0].nodeValue);
+                document.getElementById("web").href=web;
+                document.getElementById("web").style.display="inline"
+            }
+            catch(e){
+                document.getElementById("web").style.display="none"
+            }
+            try{
+                blog=(x[i].getElementsByTagName("blog")[0].childNodes[0].nodeValue);
+                document.getElementById("source").href=source;
+                document.getElementById("source").style.display="inline"
+            }
+            catch(e){
+                document.getElementById("source").style.display="none"
+            }
         }
+        demoInfo(0)
     </script>
     <script type="text/javascript">
         document.write("<table border='1'>");
-        txt="<p>Recent Project</p></br>";
+        txt="<p>Recent Project</p>";
         for (var i=0;i<x.length;i++){ 
-            txt+="<a href='javascript:void(0)' style='color=#AAAAAA' ";
+            txt+="<a href='javascript:void(0)' style='color:#CCCCCC;text-decoration:none' ";
             txt+="onclick='demoInfo(" + i + ")'>";
             txt+=x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue;
             txt+="</a></br>";
