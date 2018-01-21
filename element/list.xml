@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<list>
+  <demo>
+    <title>坎娜与托尔 - Rimoe H5Game</title>
+    <source>https://github.com/codeRimoe/demo/tree/master/game/kanna</source>
+    <web>http://demo.rimoe.ml/game/kanna/</web>
+    <blog>http://blog.rimoe.ml/2017/06/09/post01/</blog>
+    <img>./game/kanna/images/pc/menu.png</img>
+    <id>a001</id>
+  </demo>

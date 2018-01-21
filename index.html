@@ -74,7 +74,7 @@
     <body>
         <div id="particles-js" style="background-size:cover;background-image:url('./img/2.jpg');background-repeat:no-repeat;"></div>
 
-            <div class="list">
+            <div id="list" class="list">
 
                       <li class="site-title">凝萌小记</li>
                       <li class="site-description">作家是杂家。</li>
@@ -82,14 +82,52 @@
                 
             <div class="title">
                 <div style='width:100%;text-align:right;font-size:5em;'>
-
-                        <a style="color:#fff" href="mailto:{{site.email}}"><i class="icon fa fa-file-code-o"></i></a>
-                        <a style="color:#fff" href="./game/kanna"><i class="icon fa fa-dot-circle-o"></i></a>
-
-                      <span class="site-title">Coming soon: 站点建设中...</span>
+                        <a id='blog' style="color:#fff" ><i class="icon fa fa-dot-circle-o"></i></a>
+                        <a id='source' style="color:#fff" ><i class="icon fa fa-file-code-o"></i></a>
+                        <a id='web' style="color:#fff" ><i class="icon fa fa-dot-circle-o"></i></a>
+                      <span id='cur_title' class="site-title">Coming soon: 站点建设中...</span>
                 </div>
             </div>
                 
-    <script type="text/javascript" src="js_css/imgwin.js"></script>
+    <script type="text/javascript" src="element/imgwin.js"></script>
+    <script>
+        if (window.XMLHttpRequest){
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp=new XMLHttpRequest();
+        }
+        else{
+            // code for IE6, IE5
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.open("GET","./element/list.xml",false);
+        xmlhttp.send();
+        xmlDoc=xmlhttp.responseXML;
+        x=xmlDoc.getElementsByTagName("demo");
+        
+        function demoInfo(i){
+            cur_title=(x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue);
+            source=(x[i].getElementsByTagName("source")[0].childNodes[0].nodeValue);
+            web=(x[i].getElementsByTagName("web")[0].childNodes[0].nodeValue);
+            blog=(x[i].getElementsByTagName("blog")[0].childNodes[0].nodeValue);
+            img=(x[i].getElementsByTagName("img")[0].childNodes[0].nodeValue);
+            document.getElementById("particles-js").style.backgroundImage='url('+img+')';
+            document.getElementById("blog").style.backgroundImage=blog;
+            document.getElementById("web").style.backgroundImage=web;
+            document.getElementById("source").style.backgroundImage=source;
+            document.getElementById("cur_title").style.backgroundImage=cur_title;
+            
+        }
+    </script>
+    <script type="text/javascript">
+        document.write("<table border='1'>");
+        txt="<p>Recent Project</p></br>";
+        for (var i=0;i<x.length;i++){ 
+            txt+="<a href='javascript:void(0)' style='color=#AAAAAA'>";
+            txt+="onclick='demoInfo(" + i + ")'>";
+            txt+=x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue;
+            txt+="</a></br>";
+          }
+        document.getElementById("list").innerHTML=txt;
+    </script>
     </body>
 </html>
