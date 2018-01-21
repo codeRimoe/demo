@@ -122,7 +122,7 @@
         document.write("<table border='1'>");
         txt="<p>Recent Project</p></br>";
         for (var i=0;i<x.length;i++){ 
-            txt+="<a href='javascript:void(0)' style='color=#AAAAAA'>";
+            txt+="<a href='javascript:void(0)' style='color=#AAAAAA' ";
             txt+="onclick='demoInfo(" + i + ")'>";
             txt+=x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue;
             txt+="</a></br>";
