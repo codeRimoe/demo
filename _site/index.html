@@ -44,6 +44,15 @@
         .inner{
             width:100%;
         }
+        .pic{
+            width:80vw;
+            left:20vw;
+            bottom:11vmin;
+            top:0;
+            position:absolute;
+            background-size:cover;
+            background-repeat:no-repeat;
+        }
         .list{
             width:20vw;
             height: 100vh;
@@ -65,6 +74,7 @@
             bottom:0;
             position:absolute;
         }
+        
         .title{
             width:79vw;
             height: 7vmin;
@@ -89,13 +99,44 @@
             display: -webkit-flex; /* Safari */
             align-items:center;/*指定垂直居中*/
         }
+        .link{
+            color:rgba(255, 255, 255,0.5);
+            text-decoration:none;
+        }
+        .arrow{
+            width:20px;
+            height:20px;
+            text-align:center;
+            color:rgba(255, 255, 255,0);
+            position:absolute;
+            bottom:50vh;
+            font-size:30px;
+            padding:5px;
+            margin:3px;
+            border-radius:50%;
+            transition:all;
+            display:flex;/*Flex布局*/
+            display: -webkit-flex; /* Safari */
+            align-items:center;/*指定垂直居中*/
+            text-shadow:0 0 0.2em #fff,-0 -0 0.2em #fff;
+            text-decoration:none;
+            color:rgba(84, 81, 106,0.5);
+        }
+        .arrow:hover{
+            color:rgb(255, 255, 255);
+            text-shadow:0 0 0.2em rgb(84, 81, 106),-0 -0 0.2em rgb(84, 81, 106);
+        }
+        .link:hover{
+            color:rgba(255, 255, 255,1);
+        }
+
     </style>
     <body>
-        <div id="particles-js" style="background-size:cover;background-image:url('./img/2.jpg');background-repeat:no-repeat;"></div>
+        <div id="particles-js" style="background-size:cover;background-repeat:no-repeat;"></div>
 
             <div id="list" class="list"></div>
             <div class="tdiv"></div>
-
+            <div id='pic' class="pic"></div>
             <div class="title">
                 <div style='width:100%;text-align:right;font-size:5vmin;'>
                     <span id='cur_title' class="site-title"></span>
@@ -104,69 +145,13 @@
 
             <div class="sublink">
                 <div style='width:100%;text-align:right;font-size:2vmin;'>
-                    <a id='blog' style="color:#fff;text-decoration:none" ><i class="fa fa-file-text-o"></i>[BLOG</a>]&nbsp;
-                    <a id='source' style="color:#fff;text-decoration:none" ><i class="fa fa-file-code-o"></i>[CODE]</a>&nbsp;
-                    <a id='web' style="color:#fff;text-decoration:none" ><i class="fa fa-dot-circle-o"></i>[TRY]</a>
+                    <a id='blog' class='link'><i class="fa fa-file-text-o"></i>[BLOG]</a>&nbsp;
+                    <a id='source' class='link'><i class="fa fa-file-code-o"></i>[CODE]</a>&nbsp;
+                    <a id='web' class='link'><i class="fa fa-dot-circle-o"></i>[TRY]</a>
                 </div>
             </div>
-                
-    <script type="text/javascript" src="element/imgwin.js"></script>
-    <script>
-        if (window.XMLHttpRequest){
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp=new XMLHttpRequest();
-        }
-        else{
-            // code for IE6, IE5
-            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.open("GET","./element/list.xml",false);
-        xmlhttp.send();
-        xmlDoc=xmlhttp.responseXML;
-        x=xmlDoc.getElementsByTagName("demo");
-        function demoInfo(i){
-            cur_title=(x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue);
-            img=(x[i].getElementsByTagName("img")[0].childNodes[0].nodeValue);
-            document.getElementById("particles-js").style.backgroundImage='url('+img+')';
-            document.getElementById("cur_title").textContent=cur_title;
-
-            try{
-                source=(x[i].getElementsByTagName("source")[0].childNodes[0].nodeValue);
-                document.getElementById("blog").href=blog;
-                document.getElementById("blog").style.display="inline"
-            }
-            catch(e){
-                document.getElementById("blog").style.display="none"
-            }
-            try{
-                web=(x[i].getElementsByTagName("web")[0].childNodes[0].nodeValue);
-                document.getElementById("web").href=web;
-                document.getElementById("web").style.display="inline"
-            }
-            catch(e){
-                document.getElementById("web").style.display="none"
-            }
-            try{
-                blog=(x[i].getElementsByTagName("blog")[0].childNodes[0].nodeValue);
-                document.getElementById("source").href=source;
-                document.getElementById("source").style.display="inline"
-            }
-            catch(e){
-                document.getElementById("source").style.display="none"
-            }
-        }
-        demoInfo(0)
-    </script>
-    <script type="text/javascript">
-        document.write("<table border='1'>");
-        txt="<p>Recent Project</p>";
-        for (var i=0;i<x.length;i++){ 
-            txt+="<a href='javascript:void(0)' style='color:#CCCCCC;text-decoration:none' ";
-            txt+="onclick='demoInfo(" + i + ")'>";
-            txt+=x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue;
-            txt+="</a></br>";
-          }
-        document.getElementById("list").innerHTML=txt;
-    </script>
+            <a class='arrow' style="left:21vw;" href="javascript:void(0)" onclick='last()'><i class="fa fa-chevron-left"></i></a>
+            <a class='arrow' style="right:1vw;" href="javascript:void(0)" onclick='next()'><i class="fa fa-chevron-right"></i></a>
+    <script type="text/javascript" src="element/demo_info.js"></script>
     </body>
 </html>
