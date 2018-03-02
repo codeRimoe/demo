@@ -16,30 +16,40 @@ xmlDoc=xmlhttp.responseXML;
 x=xmlDoc.getElementsByTagName("demo");
 
 function demoInfo(i){
+    try{
+        clearInterval(show);
+        clearTimeout(timer);
+    }
+    catch(e){
+    }
+    
     cur_title=(x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue);
     img=(x[i].getElementsByTagName("img")[0].childNodes[0].nodeValue);
-    
-    setTimeout(function(){
-        document.getElementById("particles-js").style.opacity=0.6;
-        document.getElementById("pic").style.opacity=0.6;
-    },50);
-    setTimeout(function(){
-        document.getElementById("particles-js").style.opacity=0.3;
-        document.getElementById("pic").style.opacity=0.3;
-    },100);
-    setTimeout(function(){
+    var spd=5, now_o=1;
+    document.getElementById("particles-js").style.opacity=now_o;
+    document.getElementById("pic").style.opacity=0;
+    show=self.setInterval(function(){
+        now_o-=0.01;
+        document.getElementById("particles-js").style.opacity=now_o;
+        // document.getElementById("pic").style.opacity=now_o; //11
+    },spd);
+    timer=setTimeout(function(){
         document.getElementById("particles-js").style.backgroundImage='url('+img+')';
         document.getElementById("pic").style.backgroundImage='url('+img+')';
-    },150);
-    setTimeout(function(){
-        document.getElementById("particles-js").style.opacity=0.6;
-        document.getElementById("pic").style.opacity=0.6;
-    },200);
-    setTimeout(function(){
-        document.getElementById("particles-js").style.opacity=1;
-        document.getElementById("pic").style.opacity=1;
-    },250);
-    document.getElementById("cur_title").textContent=cur_title;
+        document.getElementById("cur_title").textContent=cur_title;
+        document.getElementById("pic").style.opacity=1; //33
+        clearInterval(show);
+        show=self.setInterval(function(){
+            now_o+=0.01;
+            document.getElementById("particles-js").style.opacity=now_o;
+            // document.getElementById("pic").style.opacity=now_o; //11
+        },spd);
+        timer=setTimeout(function(){
+            // document.getElementById("pic").style.opacity=1; //22
+            clearInterval(show);
+        },spd*100);
+    },spd*100);
+    
 
     try{
         source=(x[i].getElementsByTagName("source")[0].childNodes[0].nodeValue);
