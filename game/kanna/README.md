@@ -2,7 +2,7 @@
 
 > This is a H5 game, as a lesson homework.
 
-> To get more info, please move to my blog : [胡乱写了个小游戏 - 造《坎娜与托尔》过程中学到的](http://blog.rimoe.ml/2017/06/09/post01/)
+> To get more info, please move to my blog : [胡乱写了个小游戏 - 造《坎娜与托尔》过程中学到的](http://blog.rimoe.xyz/2017/06/09/post01/)
 
 ---
 
