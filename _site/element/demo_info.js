@@ -15,7 +15,7 @@ xmlhttp.send();
 xmlDoc=xmlhttp.responseXML;
 x=xmlDoc.getElementsByTagName("demo");
 
-set_timer()
+set_timer();
 
 function demoInfo(i){
     try{
@@ -87,7 +87,7 @@ function set_timer(){
     catch(e){
     }
     auto_timer=setTimeout(function(){
-        next()
+        next();
     },galaxy_time);
 }
 
@@ -96,7 +96,7 @@ function next(){
         currentID=0;
     }
     demoInfo(currentID);
-    set_timer()
+    set_timer();
 }
 
 function last(){
