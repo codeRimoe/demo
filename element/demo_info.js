@@ -1,6 +1,6 @@
 nID=0;       //total number of projects
 currentID=0; //record current ID
-
+galaxy_time = 5000;
 //xml files
 if (window.XMLHttpRequest){
     // code for IE7+, Firefox, Chrome, Opera, Safari
@@ -14,6 +14,8 @@ xmlhttp.open("GET","./element/list.xml",false);
 xmlhttp.send();
 xmlDoc=xmlhttp.responseXML;
 x=xmlDoc.getElementsByTagName("demo");
+
+set_timer()
 
 function demoInfo(i){
     try{
@@ -52,7 +54,7 @@ function demoInfo(i){
     
 
     try{
-        source=(x[i].getElementsByTagName("source")[0].childNodes[0].nodeValue);
+        blog=(x[i].getElementsByTagName("blog")[0].childNodes[0].nodeValue);
         document.getElementById("blog").href=blog;
         document.getElementById("blog").style.display="inline";
     }
@@ -68,7 +70,7 @@ function demoInfo(i){
         document.getElementById("web").style.display="none";
     }
     try{
-        blog=(x[i].getElementsByTagName("blog")[0].childNodes[0].nodeValue);
+        source=(x[i].getElementsByTagName("source")[0].childNodes[0].nodeValue);
         document.getElementById("source").href=source;
         document.getElementById("source").style.display="inline";
     }
@@ -78,11 +80,23 @@ function demoInfo(i){
     currentID = i;
 }
 
+function set_timer(){
+    try{
+        clearTimeout(auto_timer);
+    }
+    catch(e){
+    }
+    auto_timer=setTimeout(function(){
+        next()
+    },galaxy_time);
+}
+
 function next(){
     if (++currentID>=nID){
         currentID=0;
     }
     demoInfo(currentID);
+    set_timer()
 }
 
 function last(){
@@ -90,6 +104,7 @@ function last(){
         currentID=nID-1;
     }
     demoInfo(currentID);
+    set_timer();
 }
 
 //make a list of projects(initial)
