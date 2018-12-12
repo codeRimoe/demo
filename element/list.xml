@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <list>
   <demo>
-    <title>MLDemo - Rimoe Data</title>
+    <title>Interactive-map - Rimoe Data</title>
     <source>https://github.com/codeRimoe/Interactive-map</source>
     <blog>https://github.com/codeRimoe/Interactive-map/blob/master/Interactive%20maps.pptx</blog>
     <img>./img/imap.jpg</img>
