@@ -37,4 +37,4 @@ function qiehuan(){
 }
 
 //定时器，每隔2000毫秒执行一次qiehuan()代码，数值越小，幻灯片切换越快
-window.setInterval("qiehuan()",2000);
+window.setInterval("qiehuan()",10000);

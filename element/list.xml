@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <list>
   <demo>
+    <title>MLDemo - Rimoe Data</title>
+    <source>https://github.com/codeRimoe/Interactive-map</source>
+    <blog>https://github.com/codeRimoe/Interactive-map/blob/master/Interactive%20maps.pptx</blog>
+    <img>./img/imap.jpg</img>
+  </demo>
+  <demo>
     <title>MLDemo - Rimoe Algorithm</title>
     <source>https://github.com/codeRimoe/ML_demo</source>
     <blog>http://blog.rimoe.xyz/tags/#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0</blog>
