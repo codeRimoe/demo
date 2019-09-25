@@ -9,26 +9,26 @@
   <demo>
     <title>MLDemo - Rimoe Algorithm</title>
     <source>https://github.com/codeRimoe/ML_demo</source>
-    <blog>http://blog.rimoe.xyz/tags/#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0</blog>
+    <blog>https://blog.rimoe.xyz/tags/#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0</blog>
     <img>./img/mldemo.jpg</img>
   </demo>
   <demo>
     <title>Spider - Rimoe Data</title>
     <source>https://github.com/codeRimoe/Spider</source>
-    <blog>http://blog.rimoe.xyz/tags/#%E7%88%AC%E8%99%AB</blog>
+    <blog>https://blog.rimoe.xyz/tags/#%E7%88%AC%E8%99%AB</blog>
     <img>./img/spider.jpg</img>
   </demo>
   <demo>
     <title>坎娜与托尔h5 - Rimoe Game</title>
     <source>https://github.com/codeRimoe/demo/tree/master/game/kanna</source>
-    <web>http://demo.rimoe.xyz/game/kanna/</web>
-    <blog>http://blog.rimoe.xyz/2017/06/09/post01/</blog>
+    <web>https://demo.rimoe.xyz/game/kanna/</web>
+    <blog>https://blog.rimoe.xyz/2017/06/09/post01/</blog>
     <img>./game/kanna/images/pc/menu.png</img>
   </demo>
   <demo>
     <title>Wolf and Sheep - Rimoe Soft</title>
     <source>https://github.com/codeRimoe/Wolf_and_Sheep</source>
-    <blog>http://blog.rimoe.xyz/2017/07/27/post01/</blog>
+    <blog>https://blog.rimoe.xyz/2017/07/27/post01/</blog>
     <img>./img/wolf_sheep.jpg</img>
   </demo>
 </list>
